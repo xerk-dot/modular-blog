@@ -6,6 +6,7 @@ import { Analytics } from "./analytics";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { doge } from "./doge";
+import { HeaderBar } from "./headerbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +27,7 @@ export const metadata = {
     site: "@xerkdot",
     creator: "@xerkdot",
   },
-  metadataBase: new URL("https://rauchg.com"),
+  metadataBase: new URL("https://xerkdot.blog"),
 };
 
 export const viewport = {
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className="">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
+          <HeaderBar />
           {children}
         </main>
 

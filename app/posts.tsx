@@ -5,9 +5,9 @@ import Link from "next/link";
 import { Suspense } from "react";
 import useSWR from "swr";
 import { JetBrains_Mono } from "next/font/google";
-
+import SectionTitle from "./sectionTitle";
 const jetBrainsMono = JetBrains_Mono({
-  weight: ['400', '700'],
+  weight: ['400', '600'],
   subsets: ['latin'],
 });
 
@@ -19,7 +19,8 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
 export function Posts({ posts: initialPosts }) {
   const [sort, setSort] = useState<SortSetting>(["date", "desc"]);
   const [highlightedPostId, setHighlightedPostId] = useState<number | null>(null);
-  const [highlightedImage, setHighlightedImage] = useState<string>("https://placehold.co/700x700");
+  const [currentImage, setCurrentImage] = useState(1);
+  const maxImages = 10; // Adjust this number based on your actual image count
   const { data: posts } = useSWR("/api/posts", fetcher, {
     fallbackData: initialPosts,
     refreshInterval: 5000,
@@ -41,19 +42,30 @@ export function Posts({ posts: initialPosts }) {
 
   const handlePostClick = (post) => {
     setHighlightedPostId(post.id);
-    setHighlightedImage(post.image);
   };
 
   return (
+
+    <>
     <Suspense fallback={null}>
-      <main className="flex justify-end">
-        <img
-          id="post-image"
-          src={highlightedImage}
-          alt="Post Image"
-          style={{ marginRight: "20px", position: "fixed", top: "60px", left: "20px", width: "50vw", height: "auto" }}
-        />
-        <div className="max-w-2xl font-jetbrains-bold mb-10 text-4xl text-right" style={{ marginLeft: "calc(50vw + 40px)" }}>
+      <main className="flex justify-between">
+        <div className="w-[60vw] font-jetbrains-bold mb-10 text-4xl text-left ml-[40px]">
+          <SectionTitle title="Latest Images" exponent="1" />
+          <div className="mt-4 relative">
+            <img 
+              src="/images/latest/0002.png" 
+              alt="Latest image placeholder"
+              className="h-[60vh] rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute bottom-4 right-4 bg-[#111111] text-white p-4 w-[45vw] text-sm border border-white">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              <div className="mt-2 text-[#ff4500]">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-[40vw] font-jetbrains-bold mb-10 text-4xl text-right pl-[40px]">
+          <SectionTitle title="Latest Posts" exponent={posts.length} />
           <header className="text-gray-500 dark:text-gray-600 flex items-center text-xs">
             <button
               onClick={sortDate}
@@ -87,6 +99,7 @@ export function Posts({ posts: initialPosts }) {
         </div>
       </main>
     </Suspense>
+    </>
   );
 }
 
@@ -120,7 +133,7 @@ function List({ posts, sort, onPostClick, highlightedPostId }) {
                 className={`flex transition-[background-color] hover:bg-gray-100 dark:hover:bg-[#242424] active:bg-gray-200 dark:active:bg-[#222] border-y border-gray-200 dark:border-[#313131]
                 ${!firstOfYear ? "border-t-0" : ""}
                 ${lastOfYear ? "border-b-0" : ""}
-                ${highlightedPostId === post.id ? "bg-yellow-200" : ""}
+                ${highlightedPostId === post.id ? 'hover:#ff4500' : ""}
               `}
               >
                 <span
@@ -138,7 +151,7 @@ function List({ posts, sort, onPostClick, highlightedPostId }) {
                     <span className="text-gray-500 dark:text-gray-500 text-xs block">
                       [{post.viewsFormatted}]
                     </span>
-                    <span className={`dark:text-orangered block ${jetBrainsMono.className}`}>{post.title}</span>
+                    <span className={`dark:text-orangered block ${jetBrainsMono.className} font-bold`}>{post.title}</span>
                   </div>
                 </span>
               </span>

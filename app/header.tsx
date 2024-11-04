@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="flex mb-5 md:mb-10 items-center">
+    <header className="flex mb-5 md:mb-5 items-center">
       <Logo />
 
       <nav className="font-mono text-xs grow justify-end items-center flex gap-1 md:gap-3">

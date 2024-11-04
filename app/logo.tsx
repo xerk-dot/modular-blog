@@ -1,12 +1,18 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { JetBrains_Mono } from "next/font/google";
+
+const jetBrainsMono = JetBrains_Mono({
+  weight: ['400', '800'],
+  subsets: ['latin'],
+});
 
 export function Logo() {
   const pathname = usePathname();
   return (
-    <span className="text-md md:text-lg whitespace-nowrap font-bold">
-      {pathname === "/" ? (
+    <span className={`text-4xl dark:text-orangered block ${jetBrainsMono.className} font-bold`}>
+  {pathname === "/" ? (
         <span className="cursor-default pr-2">xerkdot</span>
       ) : (
         <Link

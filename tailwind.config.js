@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         orangered: '#ff4500',
+        orange: '#ffA000',
       },
       fontFamily: {
         'jetbrains-mono': ['"JetBrains Mono"', 'monospace', 'sans-serif'],
