@@ -10,21 +10,21 @@ import { doge } from "./doge";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Guillermo Rauch's blog",
+  title: "xerk-dot's blog",
   description:
-    "Guillermo Rauch is the CEO and founder of Vercel, a software engineer, and the creator of Next.js, Mongoose, Socket.io and other open source libraries.",
+    "xerkdot is a full-stack developer.",
   openGraph: {
-    title: "Guillermo Rauchg's blog",
+    title: "xerk-dot's blog",
     description:
-      "Guillermo Rauch is the CEO and founder of Vercel, a software engineer, and the creator of Next.js, Mongoose, Socket.io and other open source libraries.",
+      "xerkdot is a full-stack developer.",
     url: "https://rauchg.com",
-    siteName: "Guillermo Rauchg's blog",
+    siteName: "xer's blog",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@rauchg",
-    creator: "@rauchg",
+    site: "@xerkdot",
+    creator: "@xerkdot",
   },
   metadataBase: new URL("https://rauchg.com"),
 };
@@ -52,7 +52,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="dark:text-gray-100 max-w-2xl m-auto">
+      <body className="">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
           {children}
