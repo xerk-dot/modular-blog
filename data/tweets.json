@@ -1,0 +1,40 @@
+{
+  "tweets": [
+    {
+      "id": 1,
+      "content": "Just deployed some new features to the blog! Dark mode, view counter and more 🚀",
+      "date": "2024-03-19T10:00:00Z",
+      "inverted": false
+    },
+    {
+      "id": 2,
+      "content": "Working on some exciting new projects! Can't wait to share them 💻",
+      "date": "2024-03-19T08:30:00Z",
+      "inverted": true
+    },
+    {
+      "id": 3,
+      "content": "TIL: The power of CSS Grid and Flexbox combined. Game changer for responsive layouts! 🎯",
+      "date": "2024-03-18T15:45:00Z",
+      "inverted": false
+    },
+    {
+      "id": 4,
+      "content": "Just pushed my first contribution to an open source project. Small steps, big impact! 🌟",
+      "date": "2024-03-18T12:20:00Z",
+      "inverted": true
+    },
+    {
+      "id": 5,
+      "content": "Exploring the world of TypeScript generics today. Mind = blown 🤯",
+      "date": "2024-03-17T19:30:00Z",
+      "inverted": false
+    },
+    {
+      "id": 6,
+      "content": "Weekend project: Building a custom React hooks library. Code reusability FTW! 📚",
+      "date": "2024-03-17T14:15:00Z",
+      "inverted": true
+    }
+  ]
+} 

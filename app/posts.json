@@ -4,6 +4,31 @@
       "id": "vr-apocalypse",
       "date": "November 4, 2024",
       "title": "How I Learned To Stop Worrying And Love The Impending VR-Apocalypse"
+    },
+    {
+      "id": "typescript-journey",
+      "date": "October 15, 2024", 
+      "title": "My Journey with TypeScript: From Skeptic to Evangelist"
+    },
+    {
+      "id": "react-patterns",
+      "date": "September 28, 2024",
+      "title": "Advanced React Patterns You Should Know About"
+    },
+    {
+      "id": "nextjs-migration",
+      "date": "September 10, 2024",
+      "title": "Migrating to Next.js 14: Lessons Learned"
+    },
+    {
+      "id": "css-grid-flexbox",
+      "date": "August 25, 2024",
+      "title": "CSS Grid + Flexbox: The Ultimate Layout Combo"
+    },
+    {
+      "id": "dark-mode",
+      "date": "August 12, 2024",
+      "title": "Implementing Dark Mode: A Deep Dive"
     }
   ]
 }
