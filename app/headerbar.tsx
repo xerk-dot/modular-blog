@@ -10,7 +10,7 @@ const jetbrains = JetBrains_Mono({
 export function HeaderBar() {
   const [color, setColor] = useState("text-orangered");
   const [formattedDate, setFormattedDate] = useState("");
-  const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   useEffect(() => {
     const colors = ["text-orangered", "text-orange"];
@@ -41,9 +41,12 @@ export function HeaderBar() {
             onClick={() => setIsMenuVisible(!isMenuVisible)}
             className={`transition-colors duration-500 ${color} text-sm`}
           >[=]</button>
-          <span className="ml-2 text-sm">{formattedDate}</span>
+          <span className="ml-2 text-sm w-full flex justify-between items-center">
+            <span>{formattedDate}</span>
+            <span className="text-right"><span className="text-orangered">v0.0.0.4</span> • 41.8781° N, 87.6298° W • BTC ↑5.76%</span>
+          </span>
         </div>
-        <nav className={`text-xs px-3 pb-3 ${isMenuVisible ? 'block' : 'hidden'}`}>
+        <nav className={`text-sm px-3 pb-3 ${isMenuVisible ? 'block' : 'hidden'}`}>
           <div className="flex justify-between">
             <div className="flex flex-col">
               <span>Pages</span>

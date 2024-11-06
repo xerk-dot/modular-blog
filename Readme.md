@@ -1,8 +1,8 @@
 # blog
 
-This is the blog that powers `rauchg.com`, built on
-[next.js](https://nextjs.org/) and
-deployed to the cloud via [Vercel](https://vercel.com).
+This is a blog, built on [next.js](https://nextjs.org/) anddeployed to the cloud via [Vercel](https://vercel.com).
+
+It was made to experiment with [Figma's Code Connect](https://github.com/figma/code-connect) tooling and other new design systems.
 
 ## How to run
 

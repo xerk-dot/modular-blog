@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useEffect, useState } from "react";
-import Tweet from '../components/Tweet';
-
+import Box from '../components/box';
+import { Tweet } from 'app/(post)/components/tweet';
 import Link from "next/link";
 import { Suspense } from "react";
 import useSWR from "swr";
@@ -44,7 +44,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
 export function Posts({ posts: initialPosts }) {
   const [sort, setSort] = useState<SortSetting>(["date", "desc"]);
   const [highlightedPostId, setHighlightedPostId] = useState<number | null>(null);
-  const [tweets, setTweets] = useState<Tweet[]>([]);
+  const [tweets, setTweets] = useState<TweetData[]>([]);
 
   const { data: posts } = useSWR("/api/posts", fetcher, {
     fallbackData: initialPosts,
@@ -88,18 +88,15 @@ export function Posts({ posts: initialPosts }) {
           <SectionTitle title="Latest Tweets" exponent={5} />
 
           <div className="mt-4 grid grid-cols-2 gap-4">
-      {tweets.map((tweet) => (
-        <div 
-          key={tweet.id} 
-          className={`${tweet.inverted ? 'bg-white text-black' : 'bg-black text-white'} p-4 border border-white`}
-        >
-          <div className="text-sm">{tweet.content}</div>
-          <div className="mt-2 text-[#ff4500] text-xs">
-            {new Date(tweet.date).toRelativeString()}
+            {tweets.map((tweet) => (
+              <Box
+                key={tweet.id}
+                content={tweet.content}
+                date={tweet.date}
+                inverted={tweet.inverted}
+              />
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
 
         </div>
 
