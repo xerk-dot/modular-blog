@@ -83,11 +83,11 @@ export function Posts({ posts: initialPosts }) {
   return (
     <>
     <Suspense fallback={null}>
-      <main className="flex justify-between">
-        <div className="w-[40vw] font-jetbrains-bold mb-10 text-4xl text-left ml-[40px]">
+      <main className="flex flex-col md:flex-row justify-between">
+        <div className="w-full md:w-[40vw] font-jetbrains-bold mb-10 text-4xl text-left md:ml-[40px]">
           <SectionTitle title="Latest Tweets" exponent={5} />
 
-          <div className="mt-4 grid grid-cols-2 gap-4">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
             {tweets.map((tweet) => (
               <Box
                 key={tweet.id}
@@ -100,7 +100,7 @@ export function Posts({ posts: initialPosts }) {
 
         </div>
 
-        <div className="w-[60vw] font-jetbrains-bold mb-10 text-4xl text-right pl-[40px]">
+        <div className="w-full md:w-[60vw] font-jetbrains-bold mb-10 text-4xl text-right md:pl-[40px]">
           <SectionTitle title="Latest Posts" exponent={posts.length} align="right" />
           <header className="text-gray-500 dark:text-gray-600 flex items-center text-xs">
             <button
@@ -136,7 +136,7 @@ export function Posts({ posts: initialPosts }) {
       </main>
     </Suspense>
     </>
-  );
+  )
 }
 
 function List({ posts, sort, onPostClick, highlightedPostId }) {

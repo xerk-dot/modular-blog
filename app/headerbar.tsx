@@ -34,7 +34,6 @@ export function HeaderBar() {
   }, []);
 
   return (
-    <>
       <header className={`${jetbrains.className} flex flex-col mb-5 md:mb-10 w-full border-t border-b border-white`}>
         <div className="flex gap-2 items-center m-3 text-sm">
           <button 
@@ -47,8 +46,8 @@ export function HeaderBar() {
           </span>
         </div>
         <nav className={`text-sm px-3 pb-3 ${isMenuVisible ? 'block' : 'hidden'}`}>
-          <div className="flex justify-between">
-            <div className="flex flex-col">
+          <div className="flex flex-col md:flex-row md:justify-between">
+            <div className="flex flex-col mb-4 md:mb-0">
               <span>Pages</span>
               <a href="/about" className="text-orangered hover:underline">About Me</a>
               <a href="/archive" className="text-orangered hover:underline">Archive</a>
@@ -56,7 +55,7 @@ export function HeaderBar() {
               <a href="/resources" className="text-orangered hover:underline">Resources</a>
               <a href="/about-site" className="text-orangered hover:underline">About Site</a>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col mb-4 md:mb-0">
               <span>Featured</span>
               <a href="/calendar" className="text-orangered hover:underline">Calendar</a>
               <a href="/messages" className="text-orangered hover:underline">Community Messages</a>
@@ -64,7 +63,7 @@ export function HeaderBar() {
               <a href="/favorites" className="text-orangered hover:underline">Favorites</a>
               <a href="/tags" className="text-orangered hover:underline">All Tags</a>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col mb-4 md:mb-0">
               <span>Photos</span>
               <a href="/random-photo" className="text-orangered hover:underline">Random Photo</a>
               <a href="/photos" className="text-orangered hover:underline">All Photos</a>
@@ -79,11 +78,9 @@ export function HeaderBar() {
               <span>Readers Qtly: 12.4K</span>
 
               <span className="mt-2 text-orangered hover:underline">Acknowledgements</span>
-              
             </div>
           </div>
         </nav>
       </header>
-    </>
   );
 }
