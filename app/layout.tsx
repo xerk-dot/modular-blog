@@ -11,14 +11,14 @@ import { HeaderBar } from "./headerbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "xerk-dot's blog",
+  title: "starsof landing page",
   description:
-    "xerkdot is a full-stack developer.",
+    "landing page for starsof ar, an app to augment intimacy",
   openGraph: {
-    title: "xerk-dot's blog",
+    title: "starsof landing page",
     description:
-      "xerkdot is a full-stack developer.",
-    url: "https://rauchg.com",
+      "landing page for starsof ar, an app to augment intimacy",
+    url: "",
     siteName: "xer's blog",
     images: ["/opengraph-image"],
   },
@@ -56,7 +56,7 @@ export default function RootLayout({
       <body className="">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
-          <HeaderBar />
+          {/* <HeaderBar /> */}
           {children}
         </main>
 

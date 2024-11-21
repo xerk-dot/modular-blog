@@ -6,8 +6,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Changelog | xerk-dot',
-  description: 'History of updates and changes to xerk-dot\'s blog',
+  title: 'Changelog | starsof ar',
+  description: 'History of updates and changes to starsof',
 };
 
 export default function Changelog() {

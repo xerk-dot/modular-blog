@@ -11,7 +11,7 @@ export function Footer() {
         )
       </div>
       <div>
-        <A target="_blank" href="https://github.com/xerk-dot/modular-blog">
+        <A target="_blank" href="">
           Source
         </A>
       </div>

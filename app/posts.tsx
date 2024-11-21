@@ -42,42 +42,11 @@ type SortSetting = ["date" | "views", "desc" | "asc"];
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 export function Posts({ posts: initialPosts }) {
-  const [sort, setSort] = useState<SortSetting>(["date", "desc"]);
-  const [highlightedPostId, setHighlightedPostId] = useState<number | null>(null);
   const [tweets, setTweets] = useState<TweetData[]>([]);
-
-  const { data: posts } = useSWR("/api/posts", fetcher, {
-    fallbackData: initialPosts,
-    refreshInterval: 5000,
-  });
-
-  function sortDate() {
-    setSort(sort => [
-      "date",
-      sort[0] !== "date" || sort[1] === "asc" ? "desc" : "asc",
-    ]);
-  }
-
-  function sortViews() {
-    setSort(sort => [
-      sort[0] === "views" && sort[1] === "asc" ? "date" : "views",
-      sort[0] !== "views" ? "desc" : sort[1] === "asc" ? "desc" : "asc",
-    ]);
-  }
-
-  const handlePostClick = (post) => {
-    setHighlightedPostId(post.id);
-  };
 
   useEffect(() => {
     // Import the JSON file directly
-    import('../data/tweets.json')
-      .then((data) => {
-        setTweets(data.tweets);
-      })
-      .catch((error) => {
-        console.error('Error loading tweets:', error);
-      });
+
   }, []);
 
   return (
@@ -85,7 +54,7 @@ export function Posts({ posts: initialPosts }) {
     <Suspense fallback={null}>
       <main className="flex flex-col md:flex-row justify-between">
         <div className="w-full md:w-[40vw] font-jetbrains-bold mb-10 text-4xl text-left md:ml-[40px]">
-          <SectionTitle title="Latest Tweets" exponent={5} />
+          {/* <SectionTitle title="Latest Tweets" exponent={5} /> */}
 
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
             {tweets.map((tweet) => (
@@ -98,40 +67,6 @@ export function Posts({ posts: initialPosts }) {
             ))}
           </div>
 
-        </div>
-
-        <div className="w-full md:w-[60vw] font-jetbrains-bold mb-10 text-4xl text-right md:pl-[40px]">
-          <SectionTitle title="Latest Posts" exponent={posts.length} align="right" />
-          <header className="text-gray-500 dark:text-gray-600 flex items-center text-xs">
-            <button
-              onClick={sortDate}
-              className={`w-12 h-9 text-left  ${
-                sort[0] === "date" && sort[1] !== "desc"
-                  ? "text-gray-700 dark:text-gray-400"
-                  : ""
-              }`}
-            >
-              date
-              {sort[0] === "date" && sort[1] === "asc" && "↑"}
-            </button>
-            <span className="grow pl-2">title</span>
-            <button
-              onClick={sortViews}
-              className={`
-                    h-9
-                    pl-4
-                    ${
-                      sort[0] === "views"
-                        ? "text-gray-700 dark:text-gray-400"
-                        : ""
-                    }
-                  `}
-            >
-              views
-              {sort[0] === "views" ? (sort[1] === "asc" ? "↑" : "↓") : ""}
-            </button>
-          </header>
-          <List posts={posts} sort={sort} onPostClick={handlePostClick} highlightedPostId={highlightedPostId} />
         </div>
       </main>
     </Suspense>
