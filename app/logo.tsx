@@ -13,13 +13,13 @@ export function Logo() {
   return (
     <span className={`text-4xl dark:text-orangered block ${jetBrainsMono.className} font-bold`}>
   {pathname === "/" ? (
-        <span className="cursor-default pr-2">xerkdot</span>
+        <span className="cursor-default pr-2">starsof AR</span>
       ) : (
         <Link
           href="/"
           className="hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] p-2 rounded-sm -ml-2 transition-[background-color]"
         >
-          xerkdot
+          starsof AR
         </Link>
       )}
     </span>
