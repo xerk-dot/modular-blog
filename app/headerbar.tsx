@@ -73,7 +73,7 @@ export function HeaderBar() {
             </div>
             <div className="flex flex-col text-right text-white">
               <span>Stats</span>
-              <span>News Daily: ~142.8</span>
+              <span>News Daily: ~12222.8</span>
               <span>News Total: 857</span>
               <span>Readers Qtly: 12.4K</span>
 
