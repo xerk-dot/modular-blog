@@ -18,7 +18,7 @@ export const metadata = {
     title: "xerk-dot's blog",
     description:
       "xerkdot is a full-stack developer.",
-    url: "https://rauchg.com",
+    url: "https://xerkdot.blog",
     siteName: "xer's blog",
     images: ["/opengraph-image"],
   },
@@ -56,7 +56,6 @@ export default function RootLayout({
       <body className="">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
-          <HeaderBar />
           {children}
         </main>
 
